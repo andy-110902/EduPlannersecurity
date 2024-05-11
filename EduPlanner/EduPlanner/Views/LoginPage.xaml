@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EduPlanner.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Padding="15"
+                     VerticalOptions="Center">
+            <Label Text="Sign In"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                   FontSize="Large"/>
+            <Entry Placeholder="Entry your email" x:Name="TxtEmail"></Entry>
+            <Entry Placeholder="Entry password"
+                   IsPassword="True"
+                   x:Name="TxtPassword"></Entry>
+            <Button Text="Sign In"
+                    x:Name="BtnSignIn"
+                    CornerRadius="15"
+                    Clicked="BtnSignIn_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
