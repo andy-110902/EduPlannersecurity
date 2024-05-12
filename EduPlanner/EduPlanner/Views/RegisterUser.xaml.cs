@@ -60,6 +60,7 @@ namespace EduPlanner.Views
                 if (IsSave)
                 {
                     await DisplayAlert("Register user", "Registration completed", "OK");
+                    await Navigation.PopModalAsync();
                 }
                 else
                 {

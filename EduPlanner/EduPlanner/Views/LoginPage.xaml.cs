@@ -21,17 +21,53 @@ namespace EduPlanner.Views
 
         private async void BtnSignIn_Clicked(object sender, EventArgs e)
         {
-            string email = TxtEmail.Text;
-            string password = TxtPassword.Text;
-            string token = await _userRepository.SignIn(email, password);
-            if (!string.IsNullOrEmpty(token))
+            try
             {
-                await Navigation.PushAsync(new StudentListPage());
-            }
-            else
+                string email = TxtEmail.Text;
+                string password = TxtPassword.Text;
+                if (string.IsNullOrEmpty(email))
+                {
+                    await DisplayAlert("Warning", "Enter your email", "OK");
+                    return;
+                }
+                if (string.IsNullOrEmpty(password))
+                {
+                    await DisplayAlert("Warning", "Enter your password", "OK");
+                    return;
+                }
+                    string token = await _userRepository.SignIn(email, password);
+                if (!string.IsNullOrEmpty(token))
+                {
+                    await Navigation.PushAsync(new StudentListPage());
+                }
+                else
+                {
+                    await DisplayAlert("Sign In", "Sign in failed", "OK");
+                }
+            } catch (Exception exception)
             {
-                await DisplayAlert("Sign In", "Sign in failed", "OK");
+                if /*(exception.Message.Contains("EMAIL_NOT_FOUND"))*/
+                    (exception.Message.Contains("INVALID_LOGIN_CREDENTIALS"))
+                {
+                    await DisplayAlert("Error", "La cuenta o la contraseña no es válida. Vuelve a intentarlo.", "OK");
+                    //await DisplayAlert("No Autorizado", "Email invalido", "OK");
+                }
+                //else if(exception.Message.Contains("INVALID_PASSWORD"))
+                //{
+                //    await DisplayAlert("No Autorizado", "Password invalido", "OK");
+                //}
+                else
+                {
+                    await DisplayAlert("Error", exception.Message, "OK");
+                }
             }
+            
+        }
+
+        private async void RegisterTap_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new RegisterUser());
+
         }
     }
 }
