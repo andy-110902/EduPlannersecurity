@@ -1,22 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EduPlanner.Views.LoginPage">
+             x:Class="EduPlanner.Views.LoginPage"
+             BackgroundColor="White">
+    
     <ContentPage.Content>
         <StackLayout Padding="15"
                      VerticalOptions="Center">
-            <Label Text="Sign In"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" 
-                   FontSize="Large"/>
-            <Entry Placeholder="Entry your email" x:Name="TxtEmail"></Entry>
-            <Entry Placeholder="Entry password"
+            <!-- Título -->
+            <Label Text="Iniciar sesión"
+                   FontFamily="Droid Sans"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="Title"
+                   TextColor="CadetBlue"/>
+            <!-- Entrada de correo electrónico -->
+            <Entry Placeholder="Ingresa tu correo" 
+                   PlaceholderColor="Gray"
+                   BackgroundColor="#E0FBE2"
+                   TextColor="Black"
+                   x:Name="TxtEmail"></Entry>
+            <!-- Entrada de contraseña -->
+            <Entry Placeholder="Ingresa tu contraseña"
                    IsPassword="True"
-                   x:Name="TxtPassword"></Entry>
+                   x:Name="TxtPassword"
+                   PlaceholderColor="Gray"
+                    BackgroundColor="#E0FBE2"
+                    TextColor="Black"></Entry>
+            <!-- Botón de inicio de sesión -->
             <Button Text="Sign In"
                     x:Name="BtnSignIn"
                     CornerRadius="15"
-                    Clicked="BtnSignIn_Clicked"></Button>
+                    Clicked="BtnSignIn_Clicked"
+                    TextColor="#CDF5FD"
+                    BackgroundColor="DodgerBlue"></Button>
+            <!-- Grid para los enlaces adicionales -->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -26,11 +44,11 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-
-                <Label Text="Registrar"
-                       Grid.Row="0"
+                <!-- Enlace para registrar -->
+                <Label Text="Registrar usuario"
+                       Grid.Row="1"
                        Grid.Column="0"
-                       TextColor="Blue"
+                       TextColor="#AE00FB"
                        HorizontalOptions="Center"
                        FontSize="Medium"
                        x:Name="LblRegister">
@@ -39,13 +57,24 @@
                                               Tapped="RegisterTap_Tapped"></TapGestureRecognizer>
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="Olvido"
-                   Grid.Row="0"
-                   Grid.Column="1"
-                       TextColor="Blue"
+                <!-- Enlace para olvidar contraseña -->
+                <Label Text="¿Olvido su contraseña?"
+                       Grid.Row="1"
+                       Grid.Column="2"
+                       TextColor="#AE00FB"
                        HorizontalOptions="Center"
-                       FontSize="Medium"></Label>     
+                       FontSize="Medium">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="ForgotTap"
+                                              Tapped="ForgotTap_Tapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
             </Grid>
+            <!-- Imagen estática -->
+            <Image Source="er.jpg" 
+                   Aspect="AspectFit"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

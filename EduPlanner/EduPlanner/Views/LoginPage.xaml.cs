@@ -27,24 +27,33 @@ namespace EduPlanner.Views
                 string password = TxtPassword.Text;
                 if (string.IsNullOrEmpty(email))
                 {
-                    await DisplayAlert("Warning", "Enter your email", "OK");
+                    await DisplayAlert("Advertencia", "Ingresa tu correo.", "OK");
                     return;
                 }
                 if (string.IsNullOrEmpty(password))
                 {
-                    await DisplayAlert("Warning", "Enter your password", "OK");
+                    await DisplayAlert("Advertencia", "Ingresa tu contraseña.", "OK");
                     return;
                 }
-                    string token = await _userRepository.SignIn(email, password);
+
+                string token = await _userRepository.SignIn(email, password);
+                string userEmail = email; // Obtener el correo electrónico desde la autenticación
+
                 if (!string.IsNullOrEmpty(token))
                 {
+
+                    // Guardar los valores del nombre de usuario y correo electrónico en las propiedades de la aplicación
+                    Application.Current.Properties["UserEmail"] = userEmail;
+                    await Application.Current.SavePropertiesAsync();
+
                     await Navigation.PushAsync(new StudentListPage());
                 }
                 else
                 {
-                    await DisplayAlert("Sign In", "Sign in failed", "OK");
+                    await DisplayAlert("Inicio de sesion", "Inicio fallido", "OK");
                 }
-            } catch (Exception exception)
+            }
+            catch (Exception exception)
             {
                 if /*(exception.Message.Contains("EMAIL_NOT_FOUND"))*/
                     (exception.Message.Contains("INVALID_LOGIN_CREDENTIALS"))
@@ -61,13 +70,18 @@ namespace EduPlanner.Views
                     await DisplayAlert("Error", exception.Message, "OK");
                 }
             }
-            
+
         }
 
         private async void RegisterTap_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new RegisterUser());
 
+        }
+
+        private async void ForgotTap_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ForgotPasswordPage());
         }
     }
 }

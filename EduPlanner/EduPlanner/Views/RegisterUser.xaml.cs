@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -26,34 +27,34 @@ namespace EduPlanner.Views
                 string email = TxtEmail.Text;
                 string password = TxtPassword.Text;
                 string confirmPassword = TxtConfirmPass.Text;
-                if (string.IsNullOrEmpty(name))
+                if (string.IsNullOrEmpty(name) || !Regex.IsMatch(name, "^[a-zA-Z]+$"))
                 {
-                    await DisplayAlert("Warning", "Type name", "OK");
+                    await DisplayAlert("Alerta", "El campo nombre esta vacio o contiene algun numero o caracter especial", "OK");
                     return;
                 }
-                if (string.IsNullOrEmpty(email))
+                if (string.IsNullOrEmpty(email) || !Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
                 {
-                    await DisplayAlert("Warning", "Type email", "OK");
+                    await DisplayAlert("Alerta", "El email no es valido.", "OK");
                     return;
                 }
                 if (password.Length < 6)
                 {
-                    await DisplayAlert("Warning", "Password should be 6 digit.", "OK");
+                    await DisplayAlert("Aviso", "La contraseña debe ser de 6 digitos.", "OK");
                     return;
                 }
-                if (string.IsNullOrEmpty(password))
+                if (string.IsNullOrEmpty(password) || !Regex.IsMatch(password, "^[0-9]+$"))
                 {
-                    await DisplayAlert("Warning", "Type password", "OK");
+                    await DisplayAlert("Alerta", "El campo contraseña esta vacio, este solo acepta numeros.", "OK");
                     return;
                 }
                 if (string.IsNullOrEmpty(confirmPassword))
                 {
-                    await DisplayAlert("Warning", "Type Confirm password", "OK");
+                    await DisplayAlert("Aviso", "Confirme la contraseña.", "OK");
                     return;
                 }
                 if (password != confirmPassword)
                 {
-                    await DisplayAlert("Warning", "Password not match.", "OK");
+                    await DisplayAlert("Alerta", "La contraseña no coincide.", "OK");
                     return;
                 }
                 bool IsSave = await _userRepository.Register(email, name, password);

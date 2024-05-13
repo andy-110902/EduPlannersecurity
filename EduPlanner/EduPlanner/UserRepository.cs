@@ -35,6 +35,12 @@ namespace EduPlanner
             }
             return "";
         }
+
+        public async Task<bool> ResetPassword(string email)
+        {
+            await authProvider.SendPasswordResetEmailAsync(email);
+            return true;
+        }
     }
 
 }

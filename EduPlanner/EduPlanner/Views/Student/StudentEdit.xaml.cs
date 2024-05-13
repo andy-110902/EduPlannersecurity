@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -29,13 +30,15 @@ namespace EduPlanner.Views.Student
         {
             string name = TxtName.Text;
             string email = TxtEmail.Text;
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(name) || !Regex.IsMatch(name, "^[a-zA-Z]+$"))
             {
-                await DisplayAlert("Advertencia", "Por favor, ingresa tu nombre.", "Ok");
+                await DisplayAlert("Alerta", "El campo nombre esta vacio o contiene algun numero o caracter especial", "OK");
+                return;
             }
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrEmpty(email) || !Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
-                await DisplayAlert("Advertencia", "Por favor, ingresa tu correo.", "Ok");
+                await DisplayAlert("Alerta", "El email no es valido.", "OK");
+                return;
             }
 
             StudentModel student = new StudentModel();
