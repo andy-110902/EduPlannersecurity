@@ -1,4 +1,4 @@
-﻿using EduPlanner.Views.Student;
+using EduPlanner.Views.Student;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,16 +35,25 @@ namespace EduPlanner.Views
                     await DisplayAlert("Warning", "Enter your password", "OK");
                     return;
                 }
-                    string token = await _userRepository.SignIn(email, password);
+
+                string token = await _userRepository.SignIn(email, password);
+                string userEmail = email; // Obtener el correo electrónico desde la autenticación
+
                 if (!string.IsNullOrEmpty(token))
                 {
+
+                    // Guardar los valores del nombre de usuario y correo electrónico en las propiedades de la aplicación
+                    Application.Current.Properties["UserEmail"] = userEmail;
+                    await Application.Current.SavePropertiesAsync();
+
                     await Navigation.PushAsync(new StudentListPage());
                 }
                 else
                 {
                     await DisplayAlert("Sign In", "Sign in failed", "OK");
                 }
-            } catch (Exception exception)
+            }
+            catch (Exception exception)
             {
                 if /*(exception.Message.Contains("EMAIL_NOT_FOUND"))*/
                     (exception.Message.Contains("INVALID_LOGIN_CREDENTIALS"))
