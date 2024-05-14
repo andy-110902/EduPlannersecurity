@@ -28,7 +28,7 @@
                     BackgroundColor="#E0FBE2"
                     TextColor="Black"></Entry>
             <!-- Botón de inicio de sesión -->
-            <Button Text="Sign In"
+            <Button Text="Iniciar sesión"
                     x:Name="BtnSignIn"
                     CornerRadius="15"
                     Clicked="BtnSignIn_Clicked"

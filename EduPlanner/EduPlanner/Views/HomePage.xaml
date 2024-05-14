@@ -17,7 +17,7 @@
             <Button Text="Lista de Estudiantes"
                     x:Name="BtnStudentList"
                     Clicked="BtnStudentList_Clicked"></Button>
-            <Button Text="ChangePassword" x:Name="BtnChangePassword" Clicked="BtnChangePassword_Clicked"></Button>
+            <Button Text="Cambiar contraseña" x:Name="BtnChangePassword" Clicked="BtnChangePassword_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

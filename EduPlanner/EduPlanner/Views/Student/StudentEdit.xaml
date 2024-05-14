@@ -26,12 +26,12 @@
                    IsVisible="false"/>
 
             <Entry x:Name="TxtName"
-                   Placeholder="Ingresa el nombre"/>
+                   Placeholder="Ingresa nombre"/>
 
             <Entry x:Name="TxtEmail"
-                   Placeholder="Ingresa tu correo"/>
-            <Entry x:Name="TxtPass"
-                    Placeholder="Ingresa tu contraseña"/>
+                   Placeholder="Ingresa correo"/>
+            <Entry x:Name="TxtPassz"
+                    Placeholder="Ingresa contraseña"/>
             <Button Text="Actualizar"
                    x:Name="ButtonUpdate"
                    CornerRadius="15"

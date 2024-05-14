@@ -21,12 +21,12 @@ namespace EduPlanner.Views
 
         private void BtnStudentList_Clicked(object sender, EventArgs e)
         {
-			Navigation.PushModalAsync(new StudentListPage());
+			Navigation.PushModalAsync(new NavigationPage(new StudentListPage()));
         }
 
         private void BtnChangePassword_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new ChangePassword());
+            Navigation.PushModalAsync(new NavigationPage(new ChangePassword()));
         }
     }
 }

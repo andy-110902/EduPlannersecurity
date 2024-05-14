@@ -4,7 +4,7 @@
              x:Class="EduPlanner.Views.Student.StudentDetails">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Student Info"
+            <Label Text="Información del estudiante"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center"
                 FontSize="Large"/>

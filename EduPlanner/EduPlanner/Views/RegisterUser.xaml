@@ -4,20 +4,20 @@
              x:Class="EduPlanner.Views.RegisterUser">
     <ContentPage.Content>
         <StackLayout Padding="15">
-            <Label Text="Register new user"
+            <Label Text="Registrar nuevo usuario"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" 
                    FontSize="Large"/>
-            <Entry Placeholder="Name"
+            <Entry Placeholder="Nombre"
                    x:Name="TxtName"></Entry>
-            <Entry Placeholder="Email"
+            <Entry Placeholder="Correo"
                    x:Name="TxtEmail"></Entry>
-            <Entry Placeholder="Password"
+            <Entry Placeholder="Contraseña"
                    IsPassword="True"
                    x:Name="TxtPassword"></Entry>
-            <Entry IsPassword="True" Placeholder="Re-Type Password"
+            <Entry IsPassword="True" Placeholder="Confirme contraseña"
                    x:Name="TxtConfirmPass"></Entry>
-            <Button Text="Register" x:Name="ButtonRegister"
+            <Button Text="Registrar" x:Name="ButtonRegister"
                     Clicked="ButtonRegister_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
