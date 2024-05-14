@@ -5,16 +5,13 @@
              Title="Lista de estudiantes"
              BackgroundColor="White">
     <ContentPage.ToolbarItems>
-                <ToolbarItem Text="Perfil"
-                     x:Name="PerfilUser"
-                     Clicked="PerfilUser_Clicked"></ToolbarItem>
-                <ToolbarItem Text="Agregar"
+        <ToolbarItem Text="Agregar"
                     x:Name="AddToolBarItem"
                     Clicked="AddToolBarItem_Clicked"></ToolbarItem>
-            </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar Placeholder="Seatch"
+            <SearchBar Placeholder="Buscar"
                        x:Name="TxtSearch"
                        TextChanged="TxtSearch_TextChanged"
                        SearchButtonPressed="TxtSearch_SearchButtonPressed"></SearchBar>

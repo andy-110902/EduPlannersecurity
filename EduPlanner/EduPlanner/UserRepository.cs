@@ -41,6 +41,12 @@ namespace EduPlanner
             await authProvider.SendPasswordResetEmailAsync(email);
             return true;
         }
+
+        public async Task<bool>ChangePassword(string token, string password)
+        {
+            await authProvider.ChangeUserPassword(token, password);
+            return true;
+        }
     }
 
 }

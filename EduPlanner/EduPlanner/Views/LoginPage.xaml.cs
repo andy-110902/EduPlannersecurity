@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,9 +15,20 @@ namespace EduPlanner.Views
     public partial class LoginPage : ContentPage
     {
         UserRepository _userRepository = new UserRepository();
+
+        //public ICommand TapCommand => new Command(async() => await)
         public LoginPage()
         {
             InitializeComponent();
+            bool haskey= Preferences.ContainsKey("token");
+            if (haskey)
+            {
+                string token = Preferences.Get("token","");
+                if (!string.IsNullOrEmpty(token) ) 
+                {
+                    Navigation.PushAsync(new HomePage());
+                }
+            }
         }
 
         private async void BtnSignIn_Clicked(object sender, EventArgs e)
@@ -37,16 +49,12 @@ namespace EduPlanner.Views
                 }
 
                 string token = await _userRepository.SignIn(email, password);
-                string userEmail = email; // Obtener el correo electrónico desde la autenticación
 
                 if (!string.IsNullOrEmpty(token))
                 {
-
-                    // Guardar los valores del nombre de usuario y correo electrónico en las propiedades de la aplicación
-                    Application.Current.Properties["UserEmail"] = userEmail;
-                    await Application.Current.SavePropertiesAsync();
-
-                    await Navigation.PushAsync(new StudentListPage());
+                    Preferences.Set("token", token);
+                    Preferences.Set("userEmail", email);
+                    await Navigation.PushAsync(new HomePage());
                 }
                 else
                 {

@@ -151,9 +151,6 @@ namespace EduPlanner.Views.Student
             await Navigation.PushModalAsync(new StudentEdit(student));
         }
 
-        private void PerfilUser_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new MiPerfil());
-        }
+        
     }
 }
