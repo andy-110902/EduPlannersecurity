@@ -60,12 +60,16 @@ namespace EduPlanner.Views
                 bool IsSave = await _userRepository.Register(email, name, password);
                 if (IsSave)
                 {
-                    await DisplayAlert("Register user", "Registration completed", "OK");
+                    await DisplayAlert("Registro", "Usuario registrado", "OK");
                     await Navigation.PopModalAsync();
+                    TxtName.Text = "";
+                    TxtEmail.Text = "";
+                    TxtPassword.Text = "";
+                    TxtConfirmPass.Text = "";
                 }
                 else
                 {
-                    await DisplayAlert("Register user", "Registration filed", "OK");
+                    await DisplayAlert("Error", "El usuario no se pudo registrar.", "OK");
                 }
             }
             catch (Exception exception)

@@ -78,6 +78,8 @@ namespace EduPlanner.Views
                     await DisplayAlert("Error", exception.Message, "OK");
                 }
             }
+            TxtEmail.Text = "";
+            TxtPassword.Text = "";
 
         }
 
