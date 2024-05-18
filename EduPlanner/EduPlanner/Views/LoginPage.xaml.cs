@@ -20,15 +20,17 @@ namespace EduPlanner.Views
         public LoginPage()
         {
             InitializeComponent();
-            bool haskey= Preferences.ContainsKey("token");
-            if (haskey)
-            {
-                string token = Preferences.Get("token","");
-                if (!string.IsNullOrEmpty(token) ) 
-                {
-                    Navigation.PushAsync(new HomePage());
-                }
-            }
+
+
+            //bool haskey = Preferences.ContainsKey("token");
+            //if (haskey)
+            //{
+            //    string token = Preferences.Get("token", "");
+            //    if (!string.IsNullOrEmpty(token))
+            //    {
+            //        Navigation.PushAsync(new RegisterUser());
+            //    }
+            //}
         }
 
         private async void BtnSignIn_Clicked(object sender, EventArgs e)
@@ -69,10 +71,14 @@ namespace EduPlanner.Views
                     await DisplayAlert("Error", "La cuenta o la contraseña no es válida. Vuelve a intentarlo.", "OK");
                     //await DisplayAlert("No Autorizado", "Email invalido", "OK");
                 }
-                //else if(exception.Message.Contains("INVALID_PASSWORD"))
-                //{
-                //    await DisplayAlert("No Autorizado", "Password invalido", "OK");
-                //}
+                else if (exception.Message.Contains("INVALID_PASSWORD"))
+                {
+                    await DisplayAlert("No Autorizado", "Password invalido", "OK");
+                }
+                else if (exception.Message.Contains("INVALID_EMAIL"))
+                {
+                    await DisplayAlert("No Autorizado", "cORREO invalido", "OK");
+                }
                 else
                 {
                     await DisplayAlert("Error", exception.Message, "OK");

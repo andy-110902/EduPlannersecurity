@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace EduPlanner
 {
@@ -42,10 +43,10 @@ namespace EduPlanner
             return true;
         }
 
-        public async Task<bool>ChangePassword(string token, string password)
+        public async Task<string>ChangePassword(string token, string password)
         {
-            await authProvider.ChangeUserPassword(token, password);
-            return true;
+            var auth= await authProvider.ChangeUserPassword(token, password);
+            return auth.FirebaseToken;
         }
     }
 

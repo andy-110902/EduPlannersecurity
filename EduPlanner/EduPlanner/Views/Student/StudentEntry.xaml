@@ -4,24 +4,31 @@
              x:Class="EduPlanner.Views.Student.StudentEntry">
     <ContentPage.Content>
         <Grid>
-            <Image Source="background.jpg" Aspect="AspectFill"></Image>
+            <!-- Imagen de fondo -->
+            <Image Source="agregar.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+            <!-- Contenido superpuesto -->
             <StackLayout Padding="15" VerticalOptions="CenterAndExpand">
-                <Label Text="Agregar estudiantes"
+                <!--<Label Text="Agregar estudiantes"
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand"
-                        FontSize="Large"/>
+                        FontSize="Large"/>-->
                 <Entry x:Name="TxtName"
-                        Placeholder="Ingresa tu nombre"/>
+                        Placeholder="Ingresa tu nombre"
+                       Margin="0,200,0,0"/>
                 <Entry x:Name="TxtEmail"
-                        Placeholder="Ingresa tu correo"/>
-                <Entry x:Name="TxtPass"
-                        Placeholder="Ingresa tu contraseña"/>
+                        Placeholder="Ingresa tu correo"
+                       Margin="0,30,0,0"/>
+                <!--<Entry x:Name="TxtPass"
+                        Placeholder="Ingresa tu contraseña"/>-->
                 <Button Text="Guardar"
                         x:Name="ButtonSave"
                         CornerRadius="15"
-                        Clicked="ButtonSave_Clicked"/>
+                        Clicked="ButtonSave_Clicked"
+                        TextColor="White"
+                        BackgroundColor="DodgerBlue"
+                        Margin="0,60,0,0"/>
             </StackLayout>
         </Grid>
-
     </ContentPage.Content>
 </ContentPage>

@@ -2,41 +2,57 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EduPlanner.Views.Student.StudentEdit">
+    <!-- Reemplaza con tu imagen de fondo -->
     <ContentPage.Content>
-        <StackLayout Padding="15" VerticalOptions="CenterAndExpand">
+        <AbsoluteLayout>
+            <!-- Imagen de fondo -->
+            <Image Source="editestudiante.png"
+                   Aspect="AspectFill"
+                   AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All"/>
 
-            <Label Text="Editar estudiante"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand"
-                   FontSize="Large"/>
+            <!-- Contenido de la página -->
+            <StackLayout Padding="15" VerticalOptions="CenterAndExpand"
+                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
 
-            <!--<Image x:Name="StudentImage"
-                   HeightRequest="150" BackgroundColor="White">
+                <!--<Label Text="Editar estudiante"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="Large"/>-->
 
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="ImageTap"
-                                          Tapped="ImageTap_Tapped"
-                                          CommandParameter="{Binding Id}"/>
-                </Image.GestureRecognizers>
-            </Image>-->
+                <!--<Image x:Name="StudentImage"
+                       HeightRequest="150" BackgroundColor="White">
 
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="ImageTap"
+                                              Tapped="ImageTap_Tapped"
+                                              CommandParameter="{Binding Id}"/>
+                    </Image.GestureRecognizers>
+                </Image>-->
 
+                <Entry x:Name="TxtId"
+                       IsVisible="false"
+                        Margin="0,60,0,0"/>
 
-            <Entry x:Name="TxtId"
-                   IsVisible="false"/>
+                <Entry x:Name="TxtName"
+                       Placeholder="Ingresa nombre"
+                       Margin="0,60,0,0"/>
 
-            <Entry x:Name="TxtName"
-                   Placeholder="Ingresa nombre"/>
+                <Entry x:Name="TxtEmail"
+                       Placeholder="Ingresa correo"
+                       Margin="0,60,0,0"/>
+                <!--<Entry x:Name="TxtPassz"
+                        Placeholder="Ingresa contraseña"/>-->
+                <Button Text="Actualizar"
+                       x:Name="ButtonUpdate"
+                       CornerRadius="15"
+                       Clicked="ButtonUpdate_Clicked"
+                        Margin="0,60,0,0"
+                        TextColor="White"
+                        BackgroundColor="DodgerBlue"/>
 
-            <Entry x:Name="TxtEmail"
-                   Placeholder="Ingresa correo"/>
-            <Entry x:Name="TxtPassz"
-                    Placeholder="Ingresa contraseña"/>
-            <Button Text="Actualizar"
-                   x:Name="ButtonUpdate"
-                   CornerRadius="15"
-                   Clicked="ButtonUpdate_Clicked"/>
-
-        </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

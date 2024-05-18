@@ -1,23 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EduPlanner.Views.LoginPage"
-             BackgroundColor="White">
-    
+             x:Class="EduPlanner.Views.LoginPage">
+
     <ContentPage.Content>
-        <StackLayout Padding="15"
-                     VerticalOptions="Center">
-            <!-- Título -->
-            <Label Text="Iniciar sesión"
-                   FontFamily="Droid Sans"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" 
-                   FontSize="Title"
-                   TextColor="CadetBlue"/>
+        <Grid>
+            <!-- Imagen de fondo -->
+            <Image Source="login.png" 
+                   Aspect="AspectFill"
+                   Opacity="5"   
+                VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   />
+            <StackLayout Padding="15"
+                         VerticalOptions="Center"
+                         BackgroundColor="Transparent">
+            
             <!-- Entrada de correo electrónico -->
             <Entry Placeholder="Ingresa tu correo" 
                    PlaceholderColor="Gray"
-                   BackgroundColor="#E0FBE2"
                    TextColor="Black"
                    x:Name="TxtEmail"></Entry>
             <!-- Entrada de contraseña -->
@@ -25,56 +26,52 @@
                    IsPassword="True"
                    x:Name="TxtPassword"
                    PlaceholderColor="Gray"
-                    BackgroundColor="#E0FBE2"
                     TextColor="Black"></Entry>
             <!-- Botón de inicio de sesión -->
-            <Button Text="Iniciar sesión"
+            <Button Text="Inicio"
                     x:Name="BtnSignIn"
                     CornerRadius="15"
                     Clicked="BtnSignIn_Clicked"
-                    TextColor="#CDF5FD"
-                    BackgroundColor="DodgerBlue"></Button>
+                    TextColor="White"
+                    BackgroundColor="DodgerBlue"
+                    Margin="0,20,0,0"></Button>
             <!-- Grid para los enlaces adicionales -->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <!-- Enlace para registrar -->
-                <Label Text="Registrar usuario"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <!-- Enlace para registrar -->
+                    <Label Text="Registrar usuario"
                        Grid.Row="1"
                        Grid.Column="0"
                        TextColor="#AE00FB"
                        HorizontalOptions="Center"
                        FontSize="Medium"
                        x:Name="LblRegister">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="RegisterTap"
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="RegisterTap"
                                               Tapped="RegisterTap_Tapped"></TapGestureRecognizer>
-                    </Label.GestureRecognizers>
-                </Label>
-                <!-- Enlace para olvidar contraseña -->
-                <Label Text="¿Olvido su contraseña?"
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <!-- Enlace para olvidar contraseña -->
+                    <Label Text="¿Olvido su contraseña?"
                        Grid.Row="1"
                        Grid.Column="2"
                        TextColor="#AE00FB"
                        HorizontalOptions="Center"
                        FontSize="Medium">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="ForgotTap"
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="ForgotTap"
                                               Tapped="ForgotTap_Tapped"></TapGestureRecognizer>
-                    </Label.GestureRecognizers>
-                </Label>
-            </Grid>
-            <!-- Imagen estática -->
-            <Image Source="er.jpg" 
-                   Aspect="AspectFit"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand"/>
-        </StackLayout>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

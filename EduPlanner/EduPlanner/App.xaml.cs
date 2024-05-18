@@ -1,4 +1,5 @@
 ﻿using EduPlanner.Views;
+using EduPlanner.Views.Student;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

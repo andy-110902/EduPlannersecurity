@@ -3,22 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EduPlanner.Views.RegisterUser">
     <ContentPage.Content>
-        <StackLayout Padding="15">
-            <Label Text="Registrar nuevo usuario"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" 
-                   FontSize="Large"/>
-            <Entry Placeholder="Nombre"
-                   x:Name="TxtName"></Entry>
-            <Entry Placeholder="Correo"
-                   x:Name="TxtEmail"></Entry>
-            <Entry Placeholder="Contraseña"
-                   IsPassword="True"
-                   x:Name="TxtPassword"></Entry>
-            <Entry IsPassword="True" Placeholder="Confirme contraseña"
-                   x:Name="TxtConfirmPass"></Entry>
-            <Button Text="Registrar" x:Name="ButtonRegister"
-                    Clicked="ButtonRegister_Clicked"></Button>
-        </StackLayout>
+        <Grid>
+            <!-- Imagen de fondo -->
+            <Image Source="registro.png" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+            <!-- Contenido superpuesto -->
+            <StackLayout Padding="15" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                <!--<Label Text="Registrar nuevo usuario"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" 
+                       FontSize="Large"/>-->
+                <Entry Placeholder="Nombre"
+                       x:Name="TxtName"
+                       Margin="0,135,0,0"/>
+                <Entry Placeholder="Correo"
+                       x:Name="TxtEmail"/>
+                <Entry Placeholder="Contraseña"
+                       IsPassword="True"
+                       x:Name="TxtPassword"/>
+                <Entry IsPassword="True" Placeholder="Confirme contraseña"
+                       x:Name="TxtConfirmPass"/>
+                <Button Text="Registrar" x:Name="ButtonRegister"
+                        Clicked="ButtonRegister_Clicked"
+                        Margin="0,20,0,0"
+                        TextColor="White"
+                        BackgroundColor="DodgerBlue"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

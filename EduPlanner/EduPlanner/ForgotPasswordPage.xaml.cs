@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -26,7 +27,12 @@ namespace EduPlanner
 				await DisplayAlert("Alerta", "Ingresa tu email.", "OK");
 				return;
 			}
-			bool IsSend = await _userRepository.ResetPassword(email);
+            if (string.IsNullOrEmpty(email) || !Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                await DisplayAlert("Alerta", "El email no es valido.", "OK");
+                return;
+            }
+            bool IsSend = await _userRepository.ResetPassword(email);
 			if (IsSend) 
 			{
                 await DisplayAlert("Reinicio contraseña", "Se envio el enlace a tu correo.", "OK");
